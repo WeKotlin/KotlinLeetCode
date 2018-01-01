@@ -1,7 +1,7 @@
 package work.johntsai._005_longest_palindromic_substring
 
 /*
- *动态规范
+ *动态规划
  */
 
 class Solution2 {
@@ -15,8 +15,8 @@ class Solution2 {
         val dp = Array(length, { BooleanArray(length) })
         var result = ""
         for (i in 0 until length) {
-            for (j in 0 until length - i) {
-                val k = i + j
+            for (j in 0 until length - i) { //  0<=j<length-i
+                val k = i + j  // i<=j+i<length  i<=k<length
                 if (s[j] == s[k] && (k - j <= 2 || dp[j + 1][k - 1])) {
                     dp[j][k] = true
                     if (k - j + 1 > maxLength) {
